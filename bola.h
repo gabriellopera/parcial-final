@@ -1,6 +1,7 @@
 #ifndef BOLA_H
 #define BOLA_H
 #include <math.h>
+#define pi 3.141617
 
 class bola
 {
@@ -30,7 +31,8 @@ public:
     float getVX() const;
     float getVY() const;
     float getE() const;
-    void set_vel(float vx, float vy, float px, float py);
+    void set_vel(float v);
+    void set_angulo(float an);
 
 };
 

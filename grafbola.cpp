@@ -1,17 +1,15 @@
 #include "grafbola.h"
 
-grafbola::grafbola(int x):escala(0.8)
+grafbola::grafbola(int x, float posx, float posy, float vel, float angulo, float distancia):escala(0.8)
 {   play = x; //bandera para la funcion paint saber que color asignarle
-    float posx,posy,velx,vely,mass,r,K,e; //variables
+    //float posx,posy,velx,vely,mass,r,K,e; //variables
+    float r,mass,velx,vely,K,e;
 
-    //Variables iniciales bajo las cuales iniciará el objeto
-    posx = 0;//posicion en x inicial
-    posy = 0;//posicion en y inicial
-    r = 50;//radio
+    r = 0.05*distancia;//radio
     mass = 50;//masa
-    velx = 60;//velocidad en x inicial
-    vely = 60;//velocidad en y inicial
-    K = 0;//coeficiente de fricción
+    velx = vel*cos(angulo*pi/180);//velocidad en x inicial
+    vely = vel*sin(angulo*pi/180);//velocidad en y inicial
+    K = 0.1;//coeficiente de fricción
     e = (0+(rand()%4)); //Coeficiente de restitución es aleatorio, de esta forma se hace el juego dinámico
     esf = new bola(posx,posy,velx,vely,mass,r,K,e); //Se crea el objeto
 
@@ -43,6 +41,8 @@ void grafbola::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     if(play==2){
         painter->setBrush(Qt::blue);
         painter->drawEllipse(boundingRect());
+        painter->setBrush(Qt::green);
+        painter->drawEllipse(boundingRect().center(),5,5);
     }
 }
 

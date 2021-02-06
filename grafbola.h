@@ -4,13 +4,14 @@
 #include <QPainter>
 #include <QGraphicsItem>
 #include "bola.h"
+#define pi 3.141617
 
 class grafbola: public QGraphicsItem
 {
 public:
     QTimer * timer;
 
-    grafbola(int x);
+    grafbola(int x,float posx, float posy, float vel, float angulo, float distancia);
     ~grafbola();
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);

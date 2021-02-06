@@ -74,11 +74,13 @@ float bola::getPX() const
     return PX;
 }
 
-void bola::set_vel(float vx, float vy, float px, float py)
+void bola::set_vel(float v)
 {
-    //Con esta función se puede manipular el objeto con velocidad y posiciones nuevas
-    VX = vx;
-    VY = vy;
-    PX = px;
-    PY = py;
+    V=v;
 }
+
+void bola::set_angulo(float an)
+{
+    angulo=an;
+}
+
