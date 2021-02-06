@@ -35,10 +35,9 @@ private:
     QPen pen;
     QTimer *timer;
     QList<grafbola *> bars;
-    float velocidad, angulo;
     grafbola *ofensivo, *defensivo;
     int h_limit, v_limit;
-    QString name;
+    QString name,name2,name3;
 
 };
 #endif // MAINWINDOW_H

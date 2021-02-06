@@ -11,7 +11,7 @@ class grafbola: public QGraphicsItem
 public:
     QTimer * timer;
 
-    grafbola(int x,float posx, float posy, float vel, float angulo, float distancia);
+    grafbola(int x);
     ~grafbola();
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);

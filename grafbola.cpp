@@ -1,17 +1,17 @@
 #include "grafbola.h"
 
-grafbola::grafbola(int x, float posx, float posy, float vel, float angulo, float distancia):escala(0.8)
+grafbola::grafbola(int x):escala(0.8)
 {   play = x; //bandera para la funcion paint saber que color asignarle
-    //float posx,posy,velx,vely,mass,r,K,e; //variables
-    float r,mass,velx,vely,K,e;
-
-    r = 0.05*distancia;//radio
-    mass = 50;//masa
-    velx = vel*cos(angulo*pi/180);//velocidad en x inicial
-    vely = vel*sin(angulo*pi/180);//velocidad en y inicial
-    K = 0.1;//coeficiente de fricción
-    e = (0+(rand()%4)); //Coeficiente de restitución es aleatorio, de esta forma se hace el juego dinámico
-    esf = new bola(posx,posy,velx,vely,mass,r,K,e); //Se crea el objeto
+    float posx,posy,velx,vely,mass,r,K,e;
+    posx = 0;
+    posy = 0;
+    r = 50;
+    mass = 50;
+    velx = 60;
+    vely = 60;
+    K = 0;
+    e = 0.2;
+    esf = new bola(posx,posy,velx,vely,mass,r,K,e);
 
 
 }

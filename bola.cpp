@@ -4,7 +4,7 @@ bola::bola(float posX_, float posY_, float velX_, float velY_, float masa_, floa
 {
     PX = posX_; //pos en x
     PY = posY_; //pos en y
-    mass = masa_; // masa del cuerpo
+    mass = masa_;//masa_; // masa del cuerpo
     R = radio_; //radio del cuerpo
     VX = velX_; //vel en x
     VY = velY_; //vel en y
@@ -15,7 +15,7 @@ bola::bola(float posX_, float posY_, float velX_, float velY_, float masa_, floa
     e = e_; //Coeficiente de restitucion
     V = 0; //vector de velocidad
     dt = 0.1; //delta tiempo
-
+    //dt = _dt; //delta tiempo
 
 }
 
@@ -35,6 +35,8 @@ void bola::actualizar()
     PY = PY + ((VY*(dt)))+(((AY*(dt*dt)))/2); //posición en Y
     VX = VX + AX*dt; //velocidad en X
     VY = VY + AY*dt; //velocidad en Y
+
+
 }
 
 float bola::getPY() const
