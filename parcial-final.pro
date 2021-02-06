@@ -10,11 +10,13 @@ CONFIG += c++11
 
 SOURCES += \
     bola.cpp \
+    grafbola.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     bola.h \
+    grafbola.h \
     mainwindow.h
 
 FORMS += \
