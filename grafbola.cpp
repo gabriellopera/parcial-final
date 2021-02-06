@@ -5,13 +5,13 @@ grafbola::grafbola(int x):escala(0.8)
     float posx,posy,velx,vely,mass,r,K,e; //variables
 
     //Variables iniciales bajo las cuales iniciará el objeto
-    posx = 800;//posicion en x inicial
-    posy = 400;//posicion en y inicial
-    r = 15;//radio
+    posx = 0;//posicion en x inicial
+    posy = 0;//posicion en y inicial
+    r = 50;//radio
     mass = 50;//masa
-    velx = 0;//velocidad en x inicial
-    vely = 0;//velocidad en y inicial
-    K = 0.2;//coeficiente de fricción
+    velx = 60;//velocidad en x inicial
+    vely = 60;//velocidad en y inicial
+    K = 0;//coeficiente de fricción
     e = (0+(rand()%4)); //Coeficiente de restitución es aleatorio, de esta forma se hace el juego dinámico
     esf = new bola(posx,posy,velx,vely,mass,r,K,e); //Se crea el objeto
 
@@ -26,8 +26,8 @@ grafbola::~grafbola() //eliminar nuestro objeto
 
 QRectF grafbola::boundingRect() const
 {
-    return QRectF(-1*escala*esf->getR(),-1*escala*esf->getR(),2*escala*esf->getR(),2*escala*esf->getR()); //Tamano para nuestro circulo de acuerdo a la escala
-
+    //return QRectF(-1*escala*esf->getR(),-1*escala*esf->getR(),2*escala*esf->getR(),2*escala*esf->getR()); //Tamano para nuestro circulo de acuerdo a la escala
+    return QRect(-2,-2,esf->getR(),esf->getR());
 }
 
 void grafbola::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -36,9 +36,12 @@ void grafbola::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     if(play==1){
         painter->setBrush(Qt::green);
         painter->drawEllipse(boundingRect());
+        painter->setBrush(Qt::red);
+        painter->drawEllipse(boundingRect().center(),5,5);
+
     }
     if(play==2){
-        painter->setBrush(Qt::white);
+        painter->setBrush(Qt::blue);
         painter->drawEllipse(boundingRect());
     }
 }
@@ -54,6 +57,7 @@ void grafbola::actualizar(float v_lim)
 
     esf->actualizar();
     setPos(esf->getPX(),v_lim-esf->getPY());
+
 }
 
 
